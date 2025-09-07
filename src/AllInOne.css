@@ -1,0 +1,291 @@
+/* 合併自 GarbageMarkerIcon.css */
+.garbage-marker-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.garbage-marker-icon .fa-truck {
+  font-size: 28px;
+  color: #ffffff;
+  background: #ffae00;
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 1px 4px #888;
+  border: 3px solid #fff;
+}
+.garbage-marker-time {
+  font-size: 16px;
+  color: #ffae00;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 2px 6px;
+  margin-top: 2px;
+  box-shadow: 0 1px 2px #ccc;
+  font-weight: bold;
+}
+
+/* 合併自 LocateButton.css */
+.locate-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #2196f3;
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px #888888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 43%;
+  right: auto;
+  bottom: 22px;      /* 調高一點，讓按鈕中心在 navbar 上方 */
+  transform: translateX(-50%);
+  transform-origin: center;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+  z-index: 5000;     /* 比 .bottom-navbar 的 2100 高 */
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.12s;
+}
+.locate-btn .fa-location-crosshairs {
+  font-size: 28px;
+  line-height: 1;
+}
+.locate-btn:focus,
+.locate-btn:active {
+  outline: 2.5px solid #1976d2;
+  outline-offset: 2px;
+  box-shadow: 0 2px 8px #888, 0 0 0 4px #1976d2;
+}
+.locate-btn:active {
+  transform: scale(1.1);
+}
+.locate-btn .error-icon {
+  color: #e53935;
+  background: #fff;
+  border-radius: 50%;
+  font-size: 28px;
+  padding: 6px;
+  box-sizing: content-box;
+}
+
+/* 合併自 LocationList.css */
+.location-list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 64px;
+  z-index: 1200;
+  padding: 8px 12px;
+  /* background: rgba(255,255,255,0.95); */
+  overflow-x: auto;
+  display: flex;
+  gap: 12px;
+  /* box-shadow: 0 -2px 8px #bbb; */
+  scrollbar-width: thin;
+  scrollbar-color: #ffae00 #f5f5f5;
+}
+.location-list-card {
+  min-width: 220px;
+  max-width: 260px;
+  border-radius: 12px;
+  color: #1f1f1f;
+  font-weight: bold;
+  background: #ffffff;
+  box-shadow: 0 1px 4px #ccc;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #eee;
+}
+.location-list-card.active {
+  border: 2px solid #ffae00;
+}
+.location-list-card-title {
+  color: #ffffff;
+  background-color: #ffae00;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.location-list-card-address,
+.location-list-card-time {
+  font-size: 18px;
+  padding: 5px 0;
+  margin-bottom: 4px;
+}
+.location-list-card-distance {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Chrome、Edge、Safari 專用 */
+.location-list::-webkit-scrollbar {
+  height: 10px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+.location-list::-webkit-scrollbar-thumb {
+  background: #ffae00;
+  border-radius: 8px;
+  border: 2px solid #f5f5f5;
+}
+.location-list::-webkit-scrollbar-thumb:hover {
+  background: #cf8e00;
+}
+
+body {
+  overflow-y: hidden;
+}
+.garbage-map-root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+
+.garbage-map-container {
+  height: 100vh;
+  width: 100vw;
+}
+.garbage-map-modal-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.32);
+  z-index: 4000;
+  display: flex;
+  align-items: center;         /* 垂直置中 */
+  justify-content: center;     /* 水平置中 */
+}
+.garbage-map-modal {
+  background: #fff;
+  border-radius: 12px;
+  margin: 0;                   /* 置中時不需 margin */
+  box-shadow: 0 4px 24px #2225;
+  width: 420px;
+  max-width: 96vw;
+  position: relative;
+  padding-top: 44px;
+  animation: fadeIn 0.2s;
+}
+.garbage-map-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+}
+.garbage-map-modal-close:hover {
+  color: #e53935;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-24px);}
+  to { opacity: 1; transform: none;}
+}
+
+/* .garbage-map-bottom-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20px;
+  width: 100vw;
+  background: #ffae00;
+  z-index: 2500;
+  pointer-events: none;
+} */
+
+/* 彈窗錯誤訊息樣式 */
+.garbage-map-error-modal-content {
+  padding: 32px 0;
+  text-align: center;
+  color: #1f1f1f;
+}
+.garbage-map-error-modal-icon {
+  font-size: 48px;
+  color: #e53935;
+  margin-bottom: 16px;
+}
+.garbage-map-error-modal-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.garbage-map-error-modal-desc {
+  font-size: 16px;
+}
+
+.bottom-navbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  background: #fff;
+  border-top: 1.5px solid #eee;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2100;
+  box-shadow: 0 -2px 8px #eee;
+}
+
+.nav-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #9e9e9e;
+  font-size: 15px;
+  padding: 0;
+  height: 100%;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav-btn i {
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+
+.nav-btn.active,
+.nav-btn:active {
+  color: #242424;
+  font-weight: bold;
+}
+
+.tab-content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 56px;
+  background: #fffbe7;
+  z-index: 2050;
+  min-height: 120px;
+  padding: 24px 16px 32px 16px;
+  box-shadow: 0 -2px 8px #eee;
+  font-size: 18px;
+}
+
+/* 移除所有按鈕點擊時的黑邊框 */
+button:focus,
+button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
