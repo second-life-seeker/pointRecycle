@@ -260,42 +260,7 @@ export default function GarbageMap() {
         )}
       </button>
 
-      {/* 新增：底部 Navbar */}
-      <nav className="bottom-navbar">
-        <button className={tab === 0 ? "nav-btn active" : "nav-btn"} onClick={() => setTab(0)}>
-          <i className="fa-solid fa-map"></i>
-          <span>地圖</span>
-        </button>
-        <button className={tab === 1 ? "nav-btn active" : "nav-btn"} onClick={() => setTab(1)}>
-          <i className="fa-solid fa-comment-dots"></i>
-          <span>聊聊</span>
-        </button>
-        {/* 新增空白按鈕 */}
-        <button className="nav-btn" style={{ pointerEvents: "none", background: "none", border: "none" }} tabIndex={-1} aria-hidden="true"></button>
-        <button className={tab === 2 ? "nav-btn active" : "nav-btn"} onClick={() => setTab(2)}>
-          <i className="fa-solid fa-bullhorn"></i>
-          <span>通知</span>
-        </button>
-        <button className={tab === 3 ? "nav-btn active" : "nav-btn"} onClick={() => setTab(3)}>
-          <i className="fa-solid fa-user"></i>
-          <span>我的</span>
-        </button>
-      </nav>
-      {/* <div className="garbage-map-bottom-mask"></div> */}
-      {/* 可根據 tab 顯示不同內容，這裡僅示範切換 */}
-      {tab === 0 && (
-        // 地圖內容（原本內容）
-        null
-      )}
-      {tab === 1 && (
-        <div className="tab-content">分享（可自訂內容）</div>
-      )}
-      {tab === 2 && (
-        <div className="tab-content">公告內容（可自訂內容）</div>
-      )}
-      {tab === 3 && (
-        <div className="tab-content">個人資訊（可自訂內容）</div>
-      )}
+  
       {/* 橫式卡片清單 */}
       {showList && sortedList.length > 0 && (
         <div
